@@ -1,0 +1,16 @@
+<userW>
+   <user class="java.util.ArrayList">
+      <x>
+         <Id>17</Id>
+         <firstName>da</firstName>
+         <lastName>bfa</lastName>
+         <email>bfa</email>
+         <phoneNumber>bfabf</phoneNumber>
+         <date>
+            <year>2019</year>
+            <month>10</month>
+            <day>18</day>
+         </date>
+      </x>
+   </user>
+</userW>

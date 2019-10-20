@@ -25,11 +25,11 @@ import java.util.List;
 
 
 public class LServlet extends HttpServlet {
+    private int size;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("SearchUser.jsp");
-
         requestDispatcher.forward(req, resp);
 
     }
@@ -46,13 +46,7 @@ public class LServlet extends HttpServlet {
         UserService service = UserService.getInstance();
 
         service.GetX(test);
-        UserW users2 = new UserW();
-        List<User> user = users2.getUser();
-        req.setAttribute("user", user);
-        File file = new File("/home/andrei/GeomantTest/src/main/resources/example.xml");
 
-
-        Reader inputStream = new InputStreamReader(new FileInputStream("/home/andrei/GeomantTest/src/main/resources/example.xml"));
 
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
                 .newInstance();
@@ -75,12 +69,12 @@ public class LServlet extends HttpServlet {
 
         for (int i = 0; i < nodeList.getLength(); i++) {
             Node node = nodeList.item(i);
-            int size=i;
-            req.setAttribute("size",size);
+             size=i;
+
 
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 System.out.println(node.getTextContent());
-
+                req.setAttribute("size",size);
                 req.setAttribute("myname"+size, node.getTextContent());
             }
 

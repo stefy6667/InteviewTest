@@ -9,7 +9,7 @@
 
 <html>
 <head>
-
+    <meta http-equiv="refresh" content="5"/>
     <title>User Search</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
@@ -27,7 +27,7 @@
 
             <h2>Search user</h2>
         </div>
-        <form method="post" class="w3-selection w3-light-grey w3-padding">
+        <form action="/SearchUser" method="post" class="w3-selection w3-light-grey w3-padding">
             <label>Search User:
                 <input type="text" name="name" class="w3-input w3-animate-input w3-border w3-round-large"
                        style="width: 30%"><br/>
@@ -37,7 +37,6 @@
             </button>
 
         </form>
-
 
     </div>
     <table align="center">

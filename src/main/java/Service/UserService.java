@@ -40,7 +40,7 @@ public class UserService {
         if(x > 0){
             query= "from x where id ="+x;
         }else {
-            query = "from x";
+            query = "from x ORDER BY date DESC";
         }
 
         org.hibernate.Session session2 = HibernateUtil.getSessionFactory().openSession();

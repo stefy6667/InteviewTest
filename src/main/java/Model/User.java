@@ -5,6 +5,9 @@ package Model;
 
 
 
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
+
 import javax.persistence.*;
 
 import java.io.Serializable;
@@ -13,26 +16,27 @@ import java.time.LocalDateTime;
 
 @NamedNativeQueries({@NamedNativeQuery(name = "GetX", query = "CALL GetX(:IdX)", resultClass = User.class)})
 @Entity(name = "x")
-
+@Root
 public class User  implements Serializable {
     @Id
     @GeneratedValue
-
+    @Element
     private Integer Id;
     @Column(length=50)
-
+    @Element
     private String firstName;
     @Column(length=50)
-
+    @Element
     private String lastName;
     @Column(length=30)
-
+    @Element
     private String email;
     @Column(length=15)
-
+    @Element
     private String phoneNumber;
 
     @Column
+    @Element
     private LocalDateTime date;
 
     public Integer getId() {

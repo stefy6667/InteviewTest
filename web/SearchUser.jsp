@@ -38,23 +38,23 @@
             </button>
 
         </form>
-
     </div>
     <table align="center">
-        <% String[] subimt = request.getParameterValues("name");
-            if (subimt != null) {
+        <% String[] submit = request.getParameterValues("name");
+            if (submit != null) {
 
                 int size = (int) request.getAttribute("size");
-                int count = 0;
+                int count = 1;
                 while (count <= size) {
 
-                    out.println("<tr class=\"w3-tr\">" + "<td class=\"w3-hover-sand\">" + "  " + request.getAttribute("users" + count) + "  " + "</td>" + "</tr>");
+                    out.println("<tr><td>" + "  " + request.getAttribute("users" + count) + "  " + "</td></tr>");
 
                     count++;
 
 
+
                 }
-                if (subimt.equals("")) {
+                if (request.getParameter("name").equals("")) {
                     out.println("<script>window.onload=function(){ \n" +
                             "    window.setTimeout(function() { document.search.submit(); }, 5000);\n" +
                             "};</script>");

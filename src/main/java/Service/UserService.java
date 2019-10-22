@@ -2,21 +2,20 @@ package Service;
 
 import Model.User;
 import Model.UserW;
-import Servlet.LServlet;
 import Util.HibernateUtil;
-
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
 
-
-import java.util.Collections;
+import java.io.File;
 import java.util.List;
-import java.util.Timer;
 
 @SuppressWarnings("ALL")
 public class UserService {
@@ -55,10 +54,26 @@ public class UserService {
 
            query1 =  session.getNamedQuery("GetX").setParameter("IdX",x);
 
-          UserW userW = new UserW();
-        userW.setUser(query1.list());
+//          UserW userW = new UserW();
+//        userW.setUser(query1.list());
+//
+//        List result = userW.getUser();
+        Serializer serializer = new Persister();
 
-        List result = userW.getUser();
+
+
+        UserW users =new UserW();
+        File result1 = new File("/home/andrei/Desktop/InteviewTest/src/main/resources/example.xml");
+        List<User> result = query1.list();
+        users.setUser(result);
+
+        try {
+            serializer.write(users,result1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
 
 
 

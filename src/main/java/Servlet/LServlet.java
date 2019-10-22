@@ -38,9 +38,8 @@ public class LServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserW time = new UserW();
-        time.setTime(req.getParameter("name"));
-        String name = time.getTime();
+
+        String name = req.getParameter("name");
 
 
         int test = 0;
@@ -53,17 +52,55 @@ public class LServlet extends HttpServlet {
         UserService service = UserService.getInstance();
 
 
+        service.GetX(test);
+        DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
+                .newInstance();
+        DocumentBuilder docBuilder = null;
+        try {
+            docBuilder = docBuilderFactory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+        Document document = null;
+        try {
+            assert docBuilder != null;
+            document = docBuilder.parse(new File("/home/andrei/Desktop/InteviewTest/src/main/resources/example.xml"));
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
+
+        NodeList nodeList = document.getElementsByTagName("user");
 
 
-        List<User>users = service.GetX(test);
 
-
-        for(int i = 0;i<users.size();i++){
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            Node node = nodeList.item(i);
             int size = i;
             req.setAttribute("size",size);
-            req.setAttribute("users"+size, users.get(i).toString());
-            System.out.println(users.get(i));
+
+
+
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                System.out.println(node.getTextContent());
+
+
+                req.setAttribute("users"+size, node.getTextContent());
+            }
+
         }
+
+//
+//
+//
+//        List<User>users = service.GetX(test);
+//
+//
+//        for(int i = 0;i<users.size();i++){
+//            int size = i;
+//            req.setAttribute("size",size);
+//            req.setAttribute("users"+size, users.get(i).toString());
+//            System.out.println(users.get(i));
+//        }
 
 
 

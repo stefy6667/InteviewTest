@@ -17,12 +17,9 @@
 
 
     </class>
-    <sql-query name="findViaUserID">
-        <return alias="user" class="Model.User"/>
-        <![CDATA[select * from x where id = :id]]>
+    <sql-query name="GetX">
+        <return alias="User" class="Model.User"/>
+        <![CDATA[CALL GetX(:IdX)]]>
     </sql-query>
-    <sql-query name="findAllUser">
-        <return alias="user" class="Model.User"/>
-        <![CDATA[select * from x ORDER BY date DESC]]>
-    </sql-query>
+
 </hibernate-mapping>

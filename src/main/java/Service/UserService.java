@@ -49,20 +49,17 @@ public class UserService {
         session.beginTransaction();
 
 
-        if (x > 0) {
-            query1 = session.getNamedQuery("findViaUserID").setString("id", String.valueOf(x));
 
-        } else {
-           query1 =  session.getNamedQuery("findAllUser");
+           query1 =  session.getNamedQuery("GetX").setParameter("IdX",x);
 
-        }
 
-        List<User> user =query1.list();
+
+        List result = query1.list();
 
 
 
 
-        return user;
+        return result;
     }
 
 

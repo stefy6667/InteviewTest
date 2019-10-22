@@ -7,6 +7,15 @@ import java.util.List;
 public class UserW {
 
     private List<User> user = null;
+    private String time;
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     public List<User> getUser() {
         return user;

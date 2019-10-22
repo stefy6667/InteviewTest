@@ -38,9 +38,9 @@ public class LServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        UserW time = new UserW();
-//        time.setTime();
-        String name = req.getParameter("name");
+        UserW time = new UserW();
+        time.setTime(req.getParameter("name"));
+        String name = time.getTime();
 
 
         int test = 0;

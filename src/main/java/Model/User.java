@@ -2,38 +2,37 @@ package Model;
 
 
 
-import org.simpleframework.xml.*;
+
 
 
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
-@Root(name = "x")
 @Entity(name = "x")
 
 public class User  implements Serializable {
     @Id
     @GeneratedValue
-    @Element
+
     private Integer Id;
     @Column(length=50)
-    @Element
+
     private String firstName;
     @Column(length=50)
-    @Element
+
     private String lastName;
     @Column(length=30)
-    @Element
+
     private String email;
     @Column(length=15)
-    @Element
+
     private String phoneNumber;
-    @Element
+
     @Column
-    private LocalDate date;
+    private LocalDateTime date;
 
     public Integer getId() {
         return Id;
@@ -75,11 +74,11 @@ public class User  implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

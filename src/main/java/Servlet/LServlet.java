@@ -45,39 +45,16 @@ public class LServlet extends HttpServlet {
         }
         UserService service = UserService.getInstance();
 
-        service.GetX(test);
-
-
-        DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
-                .newInstance();
-        DocumentBuilder docBuilder = null;
-        try {
-            docBuilder = docBuilderFactory.newDocumentBuilder();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        }
-        Document document = null;
-        try {
-            document = docBuilder.parse(new File("/home/andrei/GeomantTest/src/main/resources/example.xml"));
-        } catch (SAXException e) {
-            e.printStackTrace();
-        }
-
-        NodeList nodeList = document.getElementsByTagName("x");
 
 
 
-        for (int i = 0; i < nodeList.getLength(); i++) {
-            Node node = nodeList.item(i);
-             size=i;
+        List<User>users = service.GetX(test);
 
-
-            if (node.getNodeType() == Node.ELEMENT_NODE) {
-                System.out.println(node.getTextContent());
-                req.setAttribute("size",size);
-                req.setAttribute("myname"+size, node.getTextContent());
-            }
-
+        for(int i = 0;i<users.size();i++){
+            int size = i;
+            req.setAttribute("size",size);
+            req.setAttribute("users"+size, users.get(i).toString());
+            System.out.println(users.get(i));
         }
 
 

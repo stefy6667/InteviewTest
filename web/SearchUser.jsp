@@ -47,7 +47,7 @@
             int count = 0;
             while (count <= size) {
 
-                out.println("<tr class=\"w3-tr\">" + "<td class=\"w3-hover-sand\">" + "  " + request.getAttribute("myname" + count) + "  " + "</td>" + "</tr>");
+                out.println("<tr class=\"w3-tr\">" + "<td class=\"w3-hover-sand\">" + "  " + request.getAttribute("users" + count) + "  " + "</td>" + "</tr>");
 
                 count++;
 

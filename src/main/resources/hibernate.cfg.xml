@@ -13,6 +13,7 @@
         <property name="hibernate.id.new_generator_mappings">false</property>
 
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <mapping class="Model.User"></mapping>
+
+        <mapping resource="user.hbl.xml"/>
     </session-factory>
 </hibernate-configuration>

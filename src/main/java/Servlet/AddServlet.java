@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class AddServlet extends HttpServlet {
     @Override
@@ -31,7 +32,7 @@ public class AddServlet extends HttpServlet {
         user.setLastName(lastname);
         user.setEmail(email);
         user.setPhoneNumber(phone);
-        user.setDate(LocalDate.now());
+        user.setDate(LocalDateTime.now());
 
         UserService service = new UserService();
         service.createUser(user);

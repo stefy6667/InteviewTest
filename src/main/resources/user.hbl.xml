@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="Service">
+
+    <class name="Model.User" table="x">
+        <id name="id" column="id">
+            <generator class="native" />
+        </id>
+        <property name="firstName" column="firstName" />
+        <property name="lastName" column="lastName" />
+        <property name="email" column="email" />
+        <property name="phoneNumber" column="phoneNumber" />
+        <property name="date" column="date" />
+
+
+    </class>
+    <sql-query name="findViaUserID">
+        <return alias="user" class="Model.User"/>
+        <![CDATA[select * from x where id = :id]]>
+    </sql-query>
+    <sql-query name="findAllUser">
+        <return alias="user" class="Model.User"/>
+        <![CDATA[select * from x ORDER BY date DESC]]>
+    </sql-query>
+</hibernate-mapping>

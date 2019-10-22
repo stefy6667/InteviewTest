@@ -13,7 +13,14 @@
         <servlet-name>LServlet</servlet-name>
         <url-pattern>/SearchUser</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>ResultServlet</servlet-name>
+        <servlet-class>Servlet.ResultServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResultServlet</servlet-name>
+        <url-pattern>/Result</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>AddServlet</servlet-name>
         <servlet-class>Servlet.AddServlet</servlet-class>

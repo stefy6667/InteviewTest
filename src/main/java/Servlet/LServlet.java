@@ -22,10 +22,12 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class LServlet extends HttpServlet {
-    private int size;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -36,19 +38,25 @@ public class LServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        UserW time = new UserW();
+//        time.setTime();
         String name = req.getParameter("name");
+
+
         int test = 0;
         if (name.equals("")) {
             test = 0;
         } else {
             test = Integer.parseInt(name);
         }
+
         UserService service = UserService.getInstance();
 
 
 
 
         List<User>users = service.GetX(test);
+
 
         for(int i = 0;i<users.size();i++){
             int size = i;

@@ -2,6 +2,7 @@ package Service;
 
 import Model.User;
 import Model.UserW;
+import Servlet.LServlet;
 import Util.HibernateUtil;
 
 
@@ -13,7 +14,9 @@ import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Timer;
 
 @SuppressWarnings("ALL")
 public class UserService {
@@ -52,9 +55,10 @@ public class UserService {
 
            query1 =  session.getNamedQuery("GetX").setParameter("IdX",x);
 
+          UserW userW = new UserW();
+        userW.setUser(query1.list());
 
-
-        List result = query1.list();
+        List result = userW.getUser();
 
 
 
